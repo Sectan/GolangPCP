@@ -1,8 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+import "github.com/Sectan/GolangPCP/mymath"
 
 type human struct {
 	sex             string
@@ -11,10 +10,10 @@ type human struct {
 
 func (h human) height() float64 {
 	if h.sex == "m" {
-		return h.boneLength*2.238 + 69.089
+		return mymath.Addition(mymath.Multiply(h.boneLength,2.238), 69.089)
 	}
 
-	return h.boneLength*2.317 + 61.412
+	return mymath.Addition(mymath.Multiply(h.boneLength,2.317), 61.412)
 }
 
 func main() {
@@ -24,19 +23,19 @@ func main() {
 	)
 
 	fmt.Print("Enter sex: ")
-	_, err := fmt.Scanf("%s", &sex)
+	_, err := fmt.Scanf("%s\n", &sex)
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Print("Enter your age: ")
-	_, err = fmt.Scanf("%f", &age)
+	_, err = fmt.Scanf("%f\n", &age)
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Print("Enter bone lenght: ")
-	_, err = fmt.Scanf("%f", &boneLength)
+	_, err = fmt.Scanf("%f\n", &boneLength)
 	if err != nil {
 		panic(err)
 	}
